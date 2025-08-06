@@ -1,0 +1,32 @@
+{
+  "id": "f5581abc-4a03-4ab6-8a89-786ba4c549a5",
+  "name": "Aardvark Labs File Parsing Demo",
+  "publisher": "Aardvark Labs",
+  "brief": "Aardvark Labs Customizations.",
+  "description": "Customizations provided by Aardvark Labs",
+  "version": "1.25.0.0",
+  "privacyStatement": "http://aardvarklabs.blog",
+  "EULA": "http://aardvarklabs.blog",
+  "help": "http://aardvarklabs.blog",
+  "contextSensitiveHelpUrl": "http://aardvarklabs.blog",
+  "url": "http://aardvarklabs.blog",
+  "logo": "./AardvarkLabsIcon.jpg",
+  "supportedLocales": ["en-US"],
+  "features": [ "TranslationFile", "GenerateCaptions" ],
+  "dependencies": [],
+  "screenshots": [],
+  "resourceFolders": ["Resources"],
+  "platform": "25.0.0.0",
+  "application": "25.0.0.0",
+  "resourceExposurePolicy": {
+    "allowDebugging": true, 
+    "allowDownloadingSource": true, 
+    "includeSourceInSymbolFile": false
+  },
+  "target": "Cloud",
+  "idRanges": [
+    {"from": 50000, "to": 59999}
+  ],
+  "runtime":"15.2"
+}
+

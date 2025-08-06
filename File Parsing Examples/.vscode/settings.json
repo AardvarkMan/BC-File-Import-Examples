@@ -1,0 +1,15 @@
+{
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers":[
+      "${codeCop}",
+      "${PerTenantExtensionCop}",
+      "${UICop}"
+    ],
+    "al.ruleSetPath": "./.codeAnalysis/thisproject.ruleset.json",
+    "workbench.colorCustomizations": {},
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.ObjectNamePrefix": "ARD_",
+    "al.rootNamespace": "AardvarkLabs"
+  }

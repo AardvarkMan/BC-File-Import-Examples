@@ -1,0 +1,1 @@
+This is merely a placeholder file for the folder structure.

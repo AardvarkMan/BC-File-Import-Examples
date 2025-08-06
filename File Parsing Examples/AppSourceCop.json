@@ -1,0 +1,6 @@
+{
+    "mandatoryAffixes": [ "ARD" ],
+    "mandatoryPrefix": "ARD",
+    "mandatorySuffix": "",
+    "supportedCountries": ["US"]
+}

@@ -1,0 +1,14 @@
+permissionset 50000 "ARD_FileDemo"
+{
+    Assignable = true;
+    Permissions = tabledata ARD_CustomerStaging=RIMD,
+        tabledata ARD_Pet=RIMD,
+        tabledata ARD_PetOwner=RIMD,
+        table ARD_CustomerStaging=X,
+        table ARD_Pet=X,
+        table ARD_PetOwner=X,
+        page ARD_CustomerImport=X,
+        page ARD_PetOwner=X,
+        page ARD_PetOwners=X,
+        page ARD_Pets=X;
+}

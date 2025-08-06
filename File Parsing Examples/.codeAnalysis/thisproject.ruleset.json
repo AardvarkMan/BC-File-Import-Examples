@@ -1,0 +1,11 @@
+{
+    "name": "Aardvark Labs Local Ruleset",
+    "description": "Rules for compiling for Dice nonstore deployments",
+    "rules": [
+        {
+            "id": "AS0015",
+            "action": "Warning",
+            "justification": "Not required for local deployment"
+        }
+    ]
+}

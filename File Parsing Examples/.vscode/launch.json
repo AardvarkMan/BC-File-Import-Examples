@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Local Docker",
+      "type": "al",
+      "request": "launch",
+      "server": "http://AardvarkLabs",
+      "tenant": "default",
+      "serverInstance": "BC",
+      "authentication": "UserPassword",
+      "startupObjectId": 22,
+      "breakOnError": false,
+      "breakOnRecordWrite": false,
+      "launchBrowser": true,
+      "schemaUpdateMode":"ForceSync"
+    }
+  ]
+}
