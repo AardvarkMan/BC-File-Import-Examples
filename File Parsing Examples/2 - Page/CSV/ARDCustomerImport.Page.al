@@ -128,9 +128,9 @@ page 50000 ARD_CustomerImport
         Count: Integer;
     begin
         Count := 1; // Initialize the count of processed records
-
         ProcessedHeader := false; // Flag to skip the header line
         CRLF := 10; // Define the line break character
+
         Lines := customerData.Split(CRLF); // Split the text into lines
         foreach Line in Lines do begin
             if not ProcessedHeader then begin
@@ -176,31 +176,33 @@ page 50000 ARD_CustomerImport
             until TempCustomerImportRec.Next() = 0;
     end;
 
-    procedure GenerateCustomerRecords()
-    var
-        CustomerRec: Record Customer;
-    begin
-        TempCustomerImportRec.Setfilter("ARD_No.", '<>0'); // Filter out the auto-increment field
-        if TempCustomerImportRec.FindSet() then
-            repeat
-                CustomerRec.Init();
-                CustomerRec.Name := TempCustomerImportRec."ARD_Name";
-                CustomerRec.Address := TempCustomerImportRec."ARD_AddressLine1";
-                CustomerRec."Address 2" := TempCustomerImportRec."ARD_AddressLine2";
-                CustomerRec.City := TempCustomerImportRec."ARD_City";
-                CustomerRec.County := TempCustomerImportRec."ARD_State";
-                CustomerRec."Post Code" := TempCustomerImportRec."ARD_PostalCode";
-                CustomerRec."E-Mail" := TempCustomerImportRec."ARD_ContactEmail";
-                CustomerRec."Credit Limit (LCY)" := TempCustomerImportRec."ARD_CreditLimit";
+procedure GenerateCustomerRecords()
+var
+    CustomerRec: Record Customer;
+begin
+    TempCustomerImportRec.Setfilter("ARD_No.", '<>0'); // Filter out the auto-increment field
+    if TempCustomerImportRec.FindSet() then
+        repeat
+            CustomerRec.Init();
+            CustomerREc."No." := ''; // Let the system assign the customer number
+            CustomerRec.Name := TempCustomerImportRec."ARD_Name";
+            CustomerRec.Address := TempCustomerImportRec."ARD_AddressLine1";
+            CustomerRec."Address 2" := TempCustomerImportRec."ARD_AddressLine2";
+            CustomerRec.City := TempCustomerImportRec."ARD_City";
+            CustomerRec.County := TempCustomerImportRec."ARD_State";
+            CustomerRec."Post Code" := TempCustomerImportRec."ARD_PostalCode";
+            CustomerRec."E-Mail" := TempCustomerImportRec."ARD_ContactEmail";
+            CustomerRec."Credit Limit (LCY)" := TempCustomerImportRec."ARD_CreditLimit";
 
-                // Insert the customer record into the main customer table
-                if CustomerRec.Insert() then begin
-                    TempCustomerImportRec.ARD_CustomerNo := CustomerRec."No.";
-                    TempCustomerImportRec.Modify();
-                end;
+            // Insert the customer record into the main customer table
+            if CustomerRec.Insert(true) then begin
+                TempCustomerImportRec.ARD_CustomerNo := CustomerRec."No.";
+                TempCustomerImportRec.Modify();
+            end else
+                Error(GetLastErrorText());
 
-            until TempCustomerImportRec.Next() = 0;
+        until TempCustomerImportRec.Next() = 0;
 
-        RefreshPage();
-    end;
+    RefreshPage();
+end;
 }
