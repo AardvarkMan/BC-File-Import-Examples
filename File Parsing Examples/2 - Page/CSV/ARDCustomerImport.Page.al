@@ -74,7 +74,7 @@ page 50000 ARD_CustomerImport
                 ApplicationArea = All;
                 Caption = 'Import';
                 Image = Import;
-                ToolTip = 'Import pet owners from a file.';
+                ToolTip = 'Import Customers from a file.';
                 trigger OnAction()
                 var
                     FileFilter: Text; // Defines the file filter for the upload dialog
