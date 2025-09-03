@@ -13,5 +13,9 @@ permissionset 50000 "ARD_FileDemo"
         page ARD_Pets=X,
         tabledata ARD_ItemStaging=RIMD,
         table ARD_ItemStaging=X,
-        page ARD_ExcelImport=X;
+        page ARD_ExcelImport=X,
+        tabledata ARD_SalesDetail=RIMD,
+        tabledata ARD_SalesHeader=RIMD,
+        table ARD_SalesDetail=X,
+        table ARD_SalesHeader=X;
 }
