@@ -2,18 +2,21 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Local Docker",
+      "name": "Publish: Microsoft cloud sandbox",
       "type": "al",
       "request": "launch",
-      "server": "http://AardvarkLabs",
-      "tenant": "default",
-      "serverInstance": "BC",
-      "authentication": "UserPassword",
-      "startupObjectId": 22,
-      "breakOnError": false,
-      "breakOnRecordWrite": false,
+      "environmentType": "Sandbox",
+      "environmentName": "AardvarkLabs",
+      "tenant": "3705b7c1-a1f0-461c-9692-0deedd973269",
+      "startupObjectId": 50008,
+      "breakOnError": "All",
+      "breakOnRecordWrite": "None",
       "launchBrowser": true,
-      "schemaUpdateMode":"ForceSync"
+      "enableSqlInformationDebugger": true,
+      "enableLongRunningSqlStatements": true,
+      "longRunningSqlStatementsThreshold": 500,
+      "numberOfSqlStatements": 10,
+      "schemaUpdateMode": "ForceSync"
     }
   ]
 }

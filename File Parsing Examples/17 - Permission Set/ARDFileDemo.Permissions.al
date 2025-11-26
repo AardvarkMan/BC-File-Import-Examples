@@ -17,5 +17,10 @@ permissionset 50000 "ARD_FileDemo"
         tabledata ARD_SalesDetail=RIMD,
         tabledata ARD_SalesHeader=RIMD,
         table ARD_SalesDetail=X,
-        table ARD_SalesHeader=X;
+        table ARD_SalesHeader=X,
+        tabledata ARD_Truncate=RIMD,
+        table ARD_Truncate=X,
+        page ARD_SalesDetails=X,
+        page ARD_SalesImport=X,
+        page ARD_SalesImportCard=X;
 }

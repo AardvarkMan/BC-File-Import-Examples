@@ -1,3 +1,11 @@
+namespace aardvark;
+
+using System.IO;
+using Microsoft.Inventory.Item;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Foundation.UOM;
+using System.Utilities;
+
 page 50004 ARD_ExcelImport
 {
     ApplicationArea = All;
@@ -37,14 +45,14 @@ page 50004 ARD_ExcelImport
     {
         area(Promoted)
         {
-            actionref(ImportCSVRef; ImportCSV)
+            actionref(ImportExcelRef; ImportExcel)
             { }
             actionref(GenerateCustomersRef; GenerateCustomers)
             { }
         }
         area(Processing)
         {
-            action(ImportCSV)
+            action(ImportExcel)
             {
                 ApplicationArea = All;
                 Caption = 'Import';
