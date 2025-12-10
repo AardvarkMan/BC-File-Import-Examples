@@ -22,5 +22,11 @@ permissionset 50000 "ARD_FileDemo"
         table ARD_Truncate=X,
         page ARD_SalesDetails=X,
         page ARD_SalesImport=X,
-        page ARD_SalesImportCard=X;
+        page ARD_SalesImportCard=X,
+        tabledata ARD_cXMLPOHeader=RIMD,
+        table ARD_cXMLPOHeader=X,
+        page ARD_MultiTabImport=X,
+        page ARD_xmlPOImport=X,
+        tabledata ARD_cXMLPOLine=RIMD,
+        table ARD_cXMLPOLine=X;
 }

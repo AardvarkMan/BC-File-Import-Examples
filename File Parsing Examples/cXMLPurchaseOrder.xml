@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cXML SYSTEM "http://xml.cxml.org/schemas/cXML/1.2.045/cXML.dtd">
+<cXML payloadID="PO-2001@buyersystem.com" timestamp="2025-12-02T20:45:00-05:00">
+  <Header>
+    <From>
+      <Credential domain="DUNS">
+        <Identity>10000</Identity>
+      </Credential>
+    </From>
+    <To>
+      <Credential domain="DUNS">
+        <Identity>123456789</Identity>
+      </Credential>
+    </To>
+    <Sender>
+      <Credential domain="NetworkID">
+        <Identity>buyersystem</Identity>
+        <SharedSecret>buyerSecret</SharedSecret>
+      </Credential>
+      <UserAgent>CopilotPOGenerator</UserAgent>
+    </Sender>
+  </Header>
+
+  <Request>
+    <OrderRequest>
+      <OrderRequestHeader orderID="PO-2001" orderDate="2025-12-02" type="new">
+        <Total>
+          <Money currency="USD">1,150.00</Money>
+        </Total>
+        <ShipTo>
+          <Address>
+            <Name>Fabrikam, Inc.</Name>
+            <PostalAddress>
+              <Street>500 Sample Street</Street>
+              <City>Seattle</City>
+              <State>WA</State>
+              <PostalCode>98101</PostalCode>
+              <Country isoCountryCode="US">USA</Country>
+            </PostalAddress>
+          </Address>
+        </ShipTo>
+      </OrderRequestHeader>
+
+      <ItemOut quantity="2" lineNumber="1">
+        <ItemID>
+          <SupplierPartID>1920-S</SupplierPartID>
+        </ItemID>
+        <ItemDetail>
+          <UnitPrice><Money currency="USD">275.00</Money></UnitPrice>
+          <Description xml:lang="en">ATHENS Desk</Description>
+          <UnitOfMeasure>EA</UnitOfMeasure>
+        </ItemDetail>
+      </ItemOut>
+
+      <ItemOut quantity="4" lineNumber="2">
+        <ItemID>
+          <SupplierPartID>1908-S</SupplierPartID>
+        </ItemID>
+        <ItemDetail>
+          <UnitPrice><Money currency="USD">85.00</Money></UnitPrice>
+          <Description xml:lang="en">BERLIN Guest Chair</Description>
+          <UnitOfMeasure>EA</UnitOfMeasure>
+        </ItemDetail>
+      </ItemOut>
+
+      <ItemOut quantity="1" lineNumber="3">
+        <ItemID>
+          <SupplierPartID>1936-S</SupplierPartID>
+        </ItemID>
+        <ItemDetail>
+          <UnitPrice><Money currency="USD">250.00</Money></UnitPrice>
+          <Description xml:lang="en">ANTWERP Conference Table</Description>
+          <UnitOfMeasure>EA</UnitOfMeasure>
+        </ItemDetail>
+      </ItemOut>
+    </OrderRequest>
+  </Request>
+</cXML>
