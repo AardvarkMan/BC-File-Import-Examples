@@ -9,6 +9,8 @@ page 50012 ARD_FTPHandler
     Caption = 'FTP Handler';
     PageType = Card;
     SourceTable = "Integer";
+    DataCaptionExpression = 'FTP Server Settings';
+    UsageCategory = Administration;
 
     layout
     {
@@ -81,56 +83,6 @@ page 50012 ARD_FTPHandler
             }
         }
     }
-    actions
-    {
-        area(Processing)
-        {
-            action(ListFiles)
-            {
-                ApplicationArea = All;
-                Caption = 'List Files';
-                ToolTip = 'Lists the files in the root directory of the FTP server.';
-                image = View;
-                trigger OnAction()
-                begin
-                    ListFTPFiles();
-                end;
-            }
-            action(UploadFile)
-            {
-                ApplicationArea = All;
-                Caption = 'Upload File';
-                ToolTip = 'Uploads a file called data.txt to the root directory of the FTP server.';
-                image = Create;
-                trigger OnAction()
-                begin
-                    UploadFTPFile();
-                end;
-            }
-            action(DownloadFile)
-            {
-                ApplicationArea = All;
-                Caption = 'Download File';
-                ToolTip = 'Downloads a file called data.txt from the root directory of the FTP server.';
-                image = Download;
-                trigger OnAction()
-                begin
-                    DownloadFTPFile();
-                end;
-            }
-            action(DeleteFile)
-            {
-                ApplicationArea = All;
-                Caption = 'Delete File';
-                ToolTip = 'Deletes a file called data.txt from the root directory of the FTP server.';
-                image = Delete;
-                trigger OnAction()
-                begin
-                    DeleteFTPFile();
-                end;
-            }
-        }
-    }
 
     var
         ServerSettings: Codeunit ARD_SFTPServerSettings;
@@ -140,47 +92,15 @@ page 50012 ARD_FTPHandler
         ServerFingerPrint: text;
         ServerPassword: text;
 
-
-    local procedure ListFTPFiles()
-    var
-        TempFileList: Record "SFTP Folder Content" temporary;
-        SFTPClient: Codeunit "SFTP Client";
+    trigger OnOpenPage()
     begin
-        //Setting up the client from the values in the Isolated Storage.
-        SFTPClient.AddFingerPrintSHA256(ServerSettings.GetServerFingerPrint());
-        SFTPClient.Initialize(ServerSettings.GetServerHost(), ServerSettings.GetServerPort(), ServerSettings.GetServerUserName(), ServerSettings.GetServerPassword());
-
-        SFTPClient.ListFiles('', TempFileList);
-
-        if TempFileList.FindSet() then
-            repeat
-                TempFileList.Insert();
-            until TempFileList.Next() = 0;
-
-        SFTPClient.Disconnect();
+        //Load the current server settings from the Isolated Storage when opening the page.
+        ServerHost := ServerSettings.GetServerHost();
+        ServerPort := ServerSettings.GetServerPort();
+        ServerFingerPrint := ServerSettings.GetServerFingerPrint();
+        UserName := ServerSettings.GetServerUserName();
     end;
 
-    local procedure UploadFTPFile()
-    var
-        SFTPClient: Codeunit "SFTP Client";
-        InStream: InStream;
-    begin
-        //Setting up the client from the values in the Isolated Storage.
-        SFTPClient.AddFingerPrintSHA256(ServerSettings.GetServerFingerPrint());
-        SFTPClient.Initialize(ServerSettings.GetServerHost(), ServerSettings.GetServerPort(), ServerSettings.GetServerUserName(), ServerSettings.GetServerPassword());
 
-        UploadIntoStream('', InStream);
-        SFTPClient.PutFileStream('data.txt', InStream);
-        SFTPClient.Disconnect();
-    end;
-
-    local procedure DownloadFTPFile()
-    begin
-
-    end;
-
-    local procedure DeleteFTPFile()
-    begin
-
-    end;
+    
 }
