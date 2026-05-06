@@ -25,18 +25,19 @@ page 50013 ARD_FTPFileList
                     begin
                         if Rec."Is Directory" then begin
                             case Rec.Name of
-                                '.':
+                                '.': //return to the root
                                     currentPath := '';
-                                '..':
+                                '..': //go up one level
                                     currentPath := CopyStr(currentPath, 1, currentPath.lastindexof('/') - 1);
-                                else
+                                else //go down one level
                                     currentPath := Rec."Full Name";
 
                             end;
-
+                            
+                            //List the files at the new level
                             ListFTPFiles();
                         end else
-                            DownloadFTPFile(Rec."Full Name");
+                            DownloadFTPFile(Rec."Full Name"); //Download the file that was clicked on
                     end;
                 }
                 field(Length; Rec.Length)
