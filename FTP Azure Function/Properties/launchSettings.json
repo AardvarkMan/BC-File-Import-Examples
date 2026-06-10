@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "FTP_Azure_Function": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7131",
+      "launchBrowser": false
+    }
+  }
+}

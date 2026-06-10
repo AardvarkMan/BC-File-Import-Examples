@@ -28,5 +28,14 @@ permissionset 50000 "ARD_FileDemo"
         page ARD_MultiTabImport=X,
         page ARD_xmlPOImport=X,
         tabledata ARD_cXMLPOLine=RIMD,
-        table ARD_cXMLPOLine=X;
+        table ARD_cXMLPOLine=X,
+        tabledata ARD_PA_FTPPush=RIMD,
+        table ARD_PA_FTPPush=X,
+        codeunit ARD_SFTPServerSettings=X,
+        page ARD_FTPFileList=X,
+        page ARD_FTPFiles=X,
+        page ARD_FTPHandler=X,
+        page ARD_FTPPushAPI=X,
+        page ARD_XMLPOCard=X,
+        page ARD_XMLPOLines=X;
 }
