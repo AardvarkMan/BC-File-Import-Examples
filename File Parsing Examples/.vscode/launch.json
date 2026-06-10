@@ -6,9 +6,9 @@
       "type": "al",
       "request": "launch",
       "environmentType": "Sandbox",
-      "environmentName": "AardvarkLabs",
+      "environmentName": "BCLatest",
       "tenant": "3705b7c1-a1f0-461c-9692-0deedd973269",
-      "startupObjectId": 50012,
+      "startupObjectId": 50014,
       "breakOnError": "All",
       "breakOnRecordWrite": "None",
       "launchBrowser": true,
@@ -16,7 +16,7 @@
       "enableLongRunningSqlStatements": true,
       "longRunningSqlStatementsThreshold": 500,
       "numberOfSqlStatements": 10,
-      "schemaUpdateMode":"Synchronize"
+      "schemaUpdateMode":"ForceSync"
     }
   ]
 }
