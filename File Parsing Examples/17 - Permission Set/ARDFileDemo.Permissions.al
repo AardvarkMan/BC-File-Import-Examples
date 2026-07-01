@@ -37,5 +37,8 @@ permissionset 50000 "ARD_FileDemo"
         page ARD_FTPHandler=X,
         page ARD_FTPPushAPI=X,
         page ARD_XMLPOCard=X,
-        page ARD_XMLPOLines=X;
+        page ARD_XMLPOLines=X,
+        tabledata ARD_PAFTPSend=RIMD,
+        table ARD_PAFTPSend=X,
+        page "ARD_FTP File Card"=X;
 }

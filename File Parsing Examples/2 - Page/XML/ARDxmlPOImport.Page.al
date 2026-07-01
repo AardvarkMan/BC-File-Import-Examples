@@ -1,7 +1,8 @@
 namespace AardvarkLabs.FileParsingExamples;
+
 using Microsoft.Purchases.Vendor;
-using System.Xml;
 using System.IO;
+using System.Xml;
 page 50009 ARD_xmlPOImport
 {
     ApplicationArea = All;
